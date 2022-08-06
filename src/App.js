@@ -3,6 +3,7 @@ import MoreEffect from "./components/MoreEffect";
 import {useState} from "react";
 import ThemeModifier from "./components/ThemeModifier";
 import DummyView from "./components/DummyView";
+import {HookComponent} from "./components/HookComponent";
 
 //Hooks adalah fitur yang baru ada di React 16.8.
 //Fitur ini memungkinkan penggunaan state tanpa membuat class javascript
@@ -22,7 +23,8 @@ const App = () => {
     // return (
     //     pageId === 0 ? <ThemeModifier onNavigate={() => setPageId(1)}/> : <DummyView onNavigate={() => setPageId(0)}/>
     // );
-    return <MoreEffect/>
+    // return <MoreEffect/>
+    return <HookComponent/>
 }
 
 export default App;
