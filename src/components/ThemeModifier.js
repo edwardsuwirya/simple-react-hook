@@ -2,20 +2,28 @@ import {useEffect, useState} from "react";
 
 //useEffect, sebuah built in hook yang memiliki tujuan yang sama dengan
 // componentDidMount, componentDidUpdate, and componentWillUnmount
-// useEffect selalu dijalankan setiap render,tapi bisa diatur supaya tidak dijalankan setiap rendera
+// useEffect selalu dijalankan setiap render,tapi bisa diatur supaya tidak dijalankan setiap render
 const ThemeModifier = (props) => {
     const [dark, setDark] = useState(false);
 
     // Sama dengan componentDidMount and componentDidUpdate:
     useEffect(() => {
-        document.title = `You current theme ${dark ? 'white' : 'black'} times`;
+        //document.title untuk mengubah text pada tab browser
+        document.title = `Theme ${dark ? 'black' : 'white'}`;
 
-        //dipanggil ketika componentWillUnmount, effect pertama kali dijalankan dan proses re-rendering
+        //Effect cleanup
+        //1. dipanggil ketika componentWillUnmount,
+        //2. effect pertama kali dijalankan, ketika strict mode diaktifkan pada saat development
+        //3. proses re-rendering saat deps diisi state value
         return () => {
             console.log('Component will unmount')
         };
-        //Checking prevState vs currState, hanya akan dijalankan ketika berbeda
-    }, []);
+
+        //Mengatur kapan effect dipanggil, gunakan deps untuk melakukan Checking prevState vs currState,
+        // 1. ketika tidak diberikan apa", effect akan SELALU DIPANGGIL
+        // 2. ketika diberikan array kosong, useEffect hanya dijalankan saat RENDER PERTAMA SAJA
+        // 3. ketika diberikan array dengan state value, useEffect dijalankan ketika state berubah
+    });
     return (
         <div style={{backgroundColor: dark ? 'black' : 'white'}}>
             <p style={{color: dark ? 'white' : 'black'}}>Color : {dark ? 'black' : 'white'}</p>
