@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import MoreEffectService from "./services/moreEffectService";
+import MoreEffectService from "../services/moreEffectService";
 
 const MoreEffect = () => {
     const {doPrint} = MoreEffectService();

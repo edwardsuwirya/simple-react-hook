@@ -1,8 +1,8 @@
 import './App.css';
 import ThemeModifier from "./ThemeModifier";
-import DummyView from "./DummyView";
+import DummyView from "./components/DummyView";
 import {useState} from "react";
-import MoreEffect from "./MoreEffect";
+import MoreEffect from "./components/MoreEffect";
 
 //Hooks adalah fitur yang baru ada di React 16.8.
 //Fitur ini memungkinkan penggunaan state tanpa membuat class javascript
