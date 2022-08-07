@@ -5,15 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {setupStore} from "./store";
+import MoreEffectService from "./services/moreEffectService";
+import {DepsProvider} from "./context/depContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = setupStore();
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
+    <Provider store={store}>
+        <DepsProvider services={{
+            moreEffectService: MoreEffectService()
+        }}>
             <App/>
-        </Provider>
-    </React.StrictMode>
+        </DepsProvider>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import useMyHook from "./UseMyHook";
 
 const MyHook = props => {
@@ -9,13 +9,24 @@ const MyHook = props => {
     // const min = () => {
     //     setCounter(counter - 1)
     // }
-    const {counter, add, min} = useMyHook()
-    return (
-        <div>
-            result : {counter}
+    const {result, status, add, min} = useMyHook();
+    const ButtonGroup = () => (
+        <>
             <button onClick={add}>+</button>
             <button onClick={min}>-</button>
-        </div>
+        </>
+    )
+    return (
+        <>
+            {(status === 'idle' || status === 'failed') && <ButtonGroup/>}
+            {status === 'loading' && <div>LOADING</div>}
+            {status === 'success' &&
+                <div>
+                    result : {result}
+                    <ButtonGroup/>
+                </div>
+            }
+        </>
     );
 };
 
