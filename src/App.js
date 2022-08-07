@@ -7,6 +7,7 @@ import {HookComponent} from "./components/HookComponent";
 import {CustomerOrderView} from "./components/CustomerOrderView";
 import {DepsProvider} from "./context/depContext";
 import MoreEffectService from "./services/moreEffectService";
+import MyHook from "./components/MyHook/MyHook";
 
 //Hooks adalah fitur yang baru ada di React 16.8.
 //Fitur ini memungkinkan penggunaan state tanpa membuat class javascript
@@ -26,15 +27,16 @@ const App = () => {
     // return (
     //     pageId === 0 ? <ThemeModifier onNavigate={() => setPageId(1)}/> : <DummyView onNavigate={() => setPageId(0)}/>
     // );
-    return (
-        <DepsProvider services={{
-            moreEffectService: MoreEffectService()
-        }}>
-            <MoreEffect/>
-        </DepsProvider>
-    )
+    // return (
+    //     <DepsProvider services={{
+    //         moreEffectService: MoreEffectService()
+    //     }}>
+    //         <MoreEffect/>
+    //     </DepsProvider>
+    // )
     // return <HookComponent/>
     // return <CustomerOrderView/>
+    return <MyHook/>
 }
 
 export default App;
