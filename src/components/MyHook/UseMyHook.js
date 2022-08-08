@@ -16,6 +16,7 @@ const useMyHook = () => {
         if (status === 'failed') {
             window.alert(error)
         }
+        //deps status dibutuhkan untuk kondisi error
     }, [value, status]);
     const add = () => {
         setCounter(counter + 1);
