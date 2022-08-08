@@ -19,7 +19,7 @@ const MoreEffect = () => {
     // Karena useEffect == componentDidMount & ComponentDidUpdate,
     // const [result, setResult] = useState('');
     // useEffect(() => {
-    //     setResult(doPrint('1'))
+    //     setResult(doPrint(Math.random()))
     //     console.log('1');
     // });
 
